@@ -1,13 +1,20 @@
 sudo: required
-
 arch:
   packages:
-    - ppl
-    - zlib
-    - libmpc
-    - gmp
+  - ppl
+  - zlib
+  - libmpc
+  - gmp
   script:
-    - "./build.sh"
-
+  - "./build.sh"
 script:
-  - "curl -s https://raw.githubusercontent.com/mikkeloscar/arch-travis/master/arch-travis.sh | bash"
+- curl -s https://raw.githubusercontent.com/mikkeloscar/arch-travis/master/arch-travis.sh | bash
+
+deploy:
+  provider: releases
+  api_key:
+    secure: j2v2rH43BWTC2h5vSDZfiNUSLv7KGh9ROISydEymhfHUbTgLDPh8yMiFoD5lyeqDohqfdxK8egwj762M+3F/XJcYYZN2gOUqlx4X/PSZ6vX4AohP8P694s/IvtbCzWXUfwoUR8cJmVLFKuK/8Kvjld90OlCkbuCm36oeiZH5yfP2TqzAPqy/vg/K1isSPgjBSO+ocUSN8JA/0BqJywo3FH1CmaXAhQTEbyQV4S8JJI/lzsU8aBMbTh2IPA728Jeqh4FO9mwR/G2aWg53i0wZMg6vIts3WWBYoAZPbmFhVMX/jXnKmHgbunpxy1Jd60bW6YcFLGCGO1can/w0aWIvFzfFzzNJVp8IrUhY+3AMYJzE6mFjNex+nKDdCVGb9q9ghZmQ9g2lnhHpr7OVy4U/LbaSihXgdzfpOQK9k0tka9SzPpW8fDYUgZ9BXVltuyOFXPequWOcFoDjk3kvrbJ+xycDWe+RMNFhqKuJTRcaZOMRb0pgtYnGMyPncjb9Ssx7QXT/Ald/VcfjO5DfYPVSqv+tssSSGUWzdwDRvAyhx/TKKBXo2Dd4Ch7V0qk6+1WDmI8cQ6iGUkazZGFJHJs+kqFY9vDFr4/eUAICOiruYa73tnvqmvlcm9y4DlEbrGAB6jozJeEjIWrtk8w+hMVf6yk+RJwjrFVtZXaLTzueB3c=
+  file: */*.pkg.tar.xz
+  skip_cleanup: true
+  on:
+    tags: true
