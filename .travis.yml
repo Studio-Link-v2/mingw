@@ -6,6 +6,7 @@ arch:
   - zlib
   - libmpc
   - gmp
+  - pkg-config
   script:
   - "./build.sh"
 script:
