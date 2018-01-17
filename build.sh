@@ -3,7 +3,7 @@
 function compile {
     pushd $1
     makepkg --skippgpcheck
-    yes | LANG=C pacman -U *.pkg.tar.xz
+    yes | LANG=C sudo pacman -U *.pkg.tar.xz
     popd
 }
 
