@@ -7,7 +7,6 @@ archlinux:
   - libmpc
   - gmp
   - pkg-config
-  - gcc-ada
   - wget
   script:
   - "./build.sh"

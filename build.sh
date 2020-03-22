@@ -14,6 +14,7 @@ main() {
     compile mingw-w64-gcc-base
     compile mingw-w64-crt
     compile mingw-w64-winpthreads
+    sudo pacman -Sy gcc-ada --noconfirm
     compile mingw-w64-gcc
     compile mingw-w64-pkg-config
     compile mingw-w64-environment
