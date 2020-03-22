@@ -2,7 +2,7 @@
 
 compile() {
     pushd pkgs/$1
-    makepkg --skippgpcheck >/dev/null
+    MAKEFLAGS="-j2" makepkg --skippgpcheck >/dev/null
     yes | LANG=C sudo pacman -U *.pkg.tar.xz
     popd
 }
